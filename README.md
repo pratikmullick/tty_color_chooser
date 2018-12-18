@@ -28,4 +28,4 @@ between Python3 and Bash. In such cases, please run
 to install the color-scheme.
 
 ## Credits
-MC PRTK <prtk.uncensored {at} gmail.com>
+Pratik Mullick [pratik.mullick <at> gmail.com]
