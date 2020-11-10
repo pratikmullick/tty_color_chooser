@@ -73,4 +73,3 @@ class Converter:
 
         return red_arr,grn_arr,blu_arr
 
-
