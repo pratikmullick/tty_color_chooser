@@ -1,16 +1,22 @@
-0: #171219
-1: #fd5ff1
-2: #87c38a
-3: #ffd7b1
-4: #85befd
-5: #b9b6fc
-6: #85befd
-7: #e0e0e0
-8: #000000
-9: #fd5ff1
-A: #94fa36
-B: #f5ffa8
-C: #96cbfe
-D: #b9b6fc
-E: #85befd
-F: #e0e0e0
+metadata:
+  name: "Faded"
+  description: "A dark-ish colorscheme with light colors for vivid contrast"
+  author: "Pratik Mullick"
+  license: "gplv3"
+color:
+  0: "#171219"
+  1: "#fd5ff1"
+  2: "#87c38a"
+  3: "#ffd7b1"
+  4: "#85befd"
+  5: "#b9b6fc"
+  6: "#85befd"
+  7: "#e0e0e0"
+  8: "#000000"
+  9: "#fd5ff1"
+  A: "#94fa36"
+  B: "#f5ffa8"
+  C: "#96cbfe"
+  D: "#b9b6fc"
+  E: "#85befd"
+  F: "#e0e0e0"

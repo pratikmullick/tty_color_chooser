@@ -1,16 +1,22 @@
-0: #262626
-1: #d70000
-2: #5f8700
-3: #af8700
-4: #0087ff
-5: #af005f
-6: #00afaf
-7: #e4e4e4
-8: #1c1c1c
-9: #d75f00
-A: #585858
-B: #626262
-C: #808080
-D: #5f5faf
-E: #8a8a8a
-F: #ffffd7
+metadata:
+  name: "Brownie"
+  description: "A chocolate-brownie inspired color scheme."
+  author: "Pratik Mullick"
+  license: "gplv3"
+color:
+  0: "#262626"
+  1: "#d70000"
+  2: "#5f8700"
+  3: "#af8700"
+  4: "#0087ff"
+  5: "#af005f"
+  6: "#00afaf"
+  7: "#e4e4e4"
+  8: "#1c1c1c"
+  9: "#d75f00"
+  A: "#585858"
+  B: "#626262"
+  C: "#808080"
+  D: "#5f5faf"
+  E: "#8a8a8a"
+  F: "#ffffd7"
