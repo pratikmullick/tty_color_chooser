@@ -1,50 +1,14 @@
 # Read from a YAML file, and convert it into setvtrgb format
 
 import yaml
-import random
-import tempfile
-import os,sys
-
-from string import digits, ascii_uppercase, ascii_lowercase
-
-class InputFile:
-
-    def __init__(self, yaml_file=""):
-        self.yaml_file = yaml_file
-        self.yaml_dict = self.read_yaml()
-        self.colors = self.yaml_dict["color"]
-        self.metadata = self.yaml_dict["metadata"]
-
-    def read_yaml(self):
-        with open(self.yaml_file,'r') as filestream:
-            yaml_dict = yaml.safe_load(filestream.read())
-
-        return yaml_dict
-
-class OutputFile:
-
-    def __init__(self, line_tuple, output_file=""):
-        # line_tuple cannot be blank
-        self.output_file = output_file
-        self.line_tuple = line_tuple
-        self.charset = digits + ascii_uppercase + ascii_lowercase
-
-    def write_svr(self):
-        with open(self.output_file, 'w') as outfile:
-            for line in self.line_tuple:
-                for pos,item in enumerate(line):
-                    if pos == len(line) - 1:
-                        outfile.write(str(item) + '\n')
-                    else:
-                        outfile.write(str(item) + ',')
 
 class Converter:
 
-    def __init__(self, hex_dict={}):
+    def __init__(self, hex_dict):
         self.hex_dict = hex_dict
         self.int_dict = self.hexdict2intdict()
         self.color_lines_tuple = self.col_lines()
-    
+
     def hex2int_tuple(self,col_hex_string):
         col_hex_string = (col_hex_string.lower()).strip("#")
         r_dec = int('0x' + col_hex_string[:2], 16)
@@ -73,3 +37,29 @@ class Converter:
 
         return red_arr,grn_arr,blu_arr
 
+class FileOps(Converter):
+
+    def __init__(self, input_yaml, output_svr=""):
+        self.input_yaml = input_yaml
+        self.output_svr = output_svr
+        self.yaml_dict = self.read_yaml()
+        self.colors = self.yaml_dict["color"]
+        self.metadata = self.yaml_dict["metadata"]
+
+        super().__init__(self.colors)
+        self.line_tuple = self.col_lines()
+
+    def read_yaml(self):
+        with open(self.input_yaml,'r') as filestream:
+            yaml_dict = yaml.safe_load(filestream.read())
+
+        return yaml_dict
+
+    def write_svr(self):
+        with open(self.output_svr, 'w') as outfile:
+            for line in self.line_tuple:
+                for pos,item in enumerate(line):
+                    if pos == len(line) - 1:
+                        outfile.write(str(item) + '\n')
+                    else:
+                        outfile.write(str(item) + ',')
