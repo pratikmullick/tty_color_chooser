@@ -41,7 +41,6 @@ class Program:
             randfile = None
             randfile = ''.join([random.choice(self.charset) for x in range(16)])
             output_file = os.path.join(self.tempdir, randfile + ".svr")
-            print("Writing to {}".format(output_file))
 
         return output_file
 
@@ -53,6 +52,9 @@ class Program:
 
         fileops = converter.FileOps(self.filename, self.outfile)
         fileops.write_svr(self.args.verbose)
+
+        if not self.args.output:
+            print("Writing to {}".format(self.outfile))
 
 # Running the program when invoked.
 
