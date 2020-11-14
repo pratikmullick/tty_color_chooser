@@ -1,0 +1,15 @@
+# v0.6
+Add default directories for direct name lookup
+Add setup to run colors using setvtrgb
+
+# v0.7
+Test setvtrgb on other distros and BSDs
+
+# v0.9
+Go as close to pylint as possible
+Write documentation (In-file documentation, man pages, Github markdown)
+
+# v0.8
+Create a PyPI Package
+Create deb, rpm and AUR packages
+
