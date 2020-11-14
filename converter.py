@@ -55,11 +55,15 @@ class FileOps(Converter):
 
         return yaml_dict
 
-    def write_svr(self):
+    def write_svr(self, verbose_flag=False):
         with open(self.output_svr, 'w') as outfile:
             for line in self.line_tuple:
                 for pos,item in enumerate(line):
                     if pos == len(line) - 1:
-                        outfile.write(str(item) + '\n')
+                        current_line = str(item) + '\n'
                     else:
-                        outfile.write(str(item) + ',')
+                        current_line = str(item) + ','
+                    if verbose_flag:
+                        print(current_line, end="")
+                    outfile.write(current_line)
+
