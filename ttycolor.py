@@ -16,7 +16,7 @@ class Program:
 
         self.parser = argparse.ArgumentParser(prog=self.name, description=self.description, allow_abbrev=False)
         self.parser.add_argument("-s", "--setup", action="store_true", help="Sets up console colors")
-        self.parser.add_argument("-v", "--version", action="version", version="%(prog)s 0.6 beta")
+        self.parser.add_argument("-v", "--version", action="version", version="%(prog)s 0.8 beta")
         self.parser.add_argument("-o", "--output", type=str, metavar="OUTFILE", help="Output file name")
         self.parser.add_argument("filename", metavar="FILE", type=str, help="Input file in YAML format")
         
@@ -40,8 +40,7 @@ class Program:
                 dummy.seek(0)
                 subprocess.run(["setvtrgb", dummy.name])
                 subprocess.run(["clear"])
-
-        if self.args.output:
+        elif self.args.output:
             with open(self.args.output,"w") as outfile:
                 for line in line_array:
                     outfile.write(line)
