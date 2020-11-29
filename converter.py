@@ -37,11 +37,10 @@ class Converter:
 
         return red_arr,grn_arr,blu_arr
 
-class FileOps(Converter):
+class Operations(Converter):
 
-    def __init__(self, input_yaml, output_svr=""):
+    def __init__(self, input_yaml):
         self.input_yaml = input_yaml
-        self.output_svr = output_svr
         self.yaml_dict = self.read_yaml()
         self.colors = self.yaml_dict["color"]
         self.metadata = self.yaml_dict["metadata"]
@@ -55,18 +54,15 @@ class FileOps(Converter):
 
         return yaml_dict
 
-    def write_svr(self, verbose_flag=False):
-        try:
-            with open(self.output_svr, 'w') as outfile:
-                for line in self.line_tuple:
-                    for pos,item in enumerate(line):
-                        if pos == len(line) - 1:
-                            current_line = str(item) + '\n'
-                        else:
-                            current_line = str(item) + ','
-                        if verbose_flag:
-                            print(current_line, end="")
-                        outfile.write(current_line)
-        except PermissionError:
-            print("Unable to write file. Exiting.")
+    def dict2svr(self):
+        line_arr = []
+        for line in self.line_tuple:
+            current_line = ""
+            for pos,item in enumerate(line):
+                if pos == len(line) - 1:
+                    current_line += str(item) + '\n'
+                else:
+                    current_line += str(item) + ','
+            line_arr.append(current_line)
 
+        return line_arr
