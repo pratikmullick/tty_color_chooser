@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+
+# Copyright 2018-2020, Pratik Mullick.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import random
 import os
 import sys
@@ -12,7 +27,7 @@ class Program:
 
     def __init__(self):
         self.name = "ttycolor"
-        self.description = "A program to generate and change tty colors in Linux"
+        self.description = "A program to generate and change tty colors in Linux."
 
         self.parser = argparse.ArgumentParser(prog=self.name, description=self.description, allow_abbrev=False)
         self.parser.add_argument("-s", "--setup", action="store_true", help="Sets up console colors")
@@ -45,7 +60,7 @@ class Program:
             with open(self.args.output,"w") as outfile:
                 for line in line_array:
                     outfile.write(line)
-            print("You can use setvtrgb command on {}.".format(self.args.output))
+            print("You can use setvtrgb command on {}".format(self.args.output))
         else:
             for line in line_array:
                 line = line.strip('\n')
