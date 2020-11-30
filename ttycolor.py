@@ -27,7 +27,7 @@ class Program:
 
     def __init__(self):
         self.name = "ttycolor"
-        self.description = "A program to generate and change tty colors in Linux."
+        self.description = "A program to change colors for TTY console in Linux."
 
         self.parser = argparse.ArgumentParser(prog=self.name, description=self.description, allow_abbrev=False)
         self.parser.add_argument("-s", "--setup", action="store_true", help="Sets up console colors")
