@@ -25,6 +25,11 @@ Include/
 Lib/
 Scripts/
 
+# Ignore PyPI build-specific files
+build/
+dist/
+*.egg-info/
+
 # Project specific files
 tty_color.sh
 *.svr
